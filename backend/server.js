@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-let playerBalance = 1000;
+let playerBalance = 1000; 
 
 app.post("/roll-dice", (req, res) => {
   const { betAmount, clientSeed } = req.body;
@@ -15,7 +15,6 @@ app.post("/roll-dice", (req, res) => {
   }
 
   const { roll, serverSeedHash, serverSeed } = generateRoll(clientSeed);
-
   playerBalance -= betAmount;
   let winAmount = 0;
   if (roll >= 4) {
